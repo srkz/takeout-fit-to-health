@@ -1,0 +1,35 @@
+# XcodeGen spec. Generate the Xcode project with:  xcodegen generate
+# (install via `brew install xcodegen`). Then open TakeoutFitToHealth.xcodeproj.
+name: TakeoutFitToHealth
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "16.0"
+
+settings:
+  base:
+    # Set this to your deployed Worker, e.g.
+    # https://takeout-fit-to-health.<account>.workers.dev
+    # Leave blank to use the wrangler-dev default baked into the app.
+    BACKEND_URL: ""
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+
+targets:
+  TakeoutFitToHealth:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+    info:
+      path: Resources/Info.plist
+    entitlements:
+      path: Resources/TakeoutFitToHealth.entitlements
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.TakeoutFitToHealth
+        GENERATE_INFOPLIST_FILE: NO
+        CODE_SIGN_ENTITLEMENTS: Resources/TakeoutFitToHealth.entitlements
+        TARGETED_DEVICE_FAMILY: "1" # iPhone
+    dependencies:
+      - sdk: HealthKit.framework
