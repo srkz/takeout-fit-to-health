@@ -1,0 +1,9 @@
+name = "takeout-fit-to-health"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+
+# The Worker is stateless and stores nothing; no bindings are required for v1.
+# A future streaming path for very large exports would add an R2 bucket here.
+
+[vars]
+MAX_UPLOAD_BYTES = "104857600" # 100 MB

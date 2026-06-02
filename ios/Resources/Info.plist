@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <!-- Shown on the HealthKit write-authorization sheet. We request write only. -->
+    <key>NSHealthUpdateUsageDescription</key>
+    <string>This app adds your imported Google Fit history (steps, heart rate, weight, energy, distance, and workouts) to Apple Health. It never reads or deletes existing Health data.</string>
+
+    <!-- Base URL of your deployed Cloudflare Worker; injected from build settings. -->
+    <key>BACKEND_URL</key>
+    <string>$(BACKEND_URL)</string>
+
+    <!-- Allow http to localhost for `wrangler dev` during development. -->
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsLocalNetworking</key>
+        <true/>
+    </dict>
+</dict>
+</plist>
